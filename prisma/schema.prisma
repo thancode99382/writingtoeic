@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Test {
+  id         String       @id @default(uuid()) @db.Uuid
+  title      String
+  duration   Int          @default(60)
+  createdAt  DateTime     @default(now()) @map("created_at")
+  questions  Question[]
+  submissions Submission[]
+
+  @@map("tests")
+}
+
+model Question {
+  id             String   @id @default(uuid()) @db.Uuid
+  testId         String   @map("test_id") @db.Uuid
+  questionNumber Int      @map("question_number")
+  part           Int
+  promptText     String   @map("prompt_text")
+  imageUrl       String?  @map("image_url")
+  keywords       String[] @default([])
+
+  test Test @relation(fields: [testId], references: [id], onDelete: Cascade)
+
+  @@map("questions")
+}
+
+model Submission {
+  id         String   @id @default(uuid()) @db.Uuid
+  testId     String   @map("test_id") @db.Uuid
+  answers    Json
+  aiFeedback Json?    @map("ai_feedback")
+  totalScore Int?     @map("total_score")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  test Test @relation(fields: [testId], references: [id], onDelete: Cascade)
+
+  @@map("submissions")
+}
