@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
 Analyze the provided questions, associated images (for Part 1), and the user's corresponding answers strictly based on ETS scoring criteria:
 
 - Part 1 (Q1-Q5): Look at the provided image for each question. Evaluate the user's sentence based on: Grammar accuracy, factual relevance to the objects/actions in the picture, and correct usage of BOTH provided keywords (keywords must keep their original form/parts of speech unless it is a valid verb conjugation). Score 0-3 per question.
-- Part 2 (Q6-Q7): Task achievement (answering all instructions and cues), sentence quality, and professional business tone. Score 0-5 per question.
+- Part 2 (Q6-Q7): Task achievement (answering all instructions and cues), sentence quality, and professional business tone. Score 0-4 per question.
 - Part 3 (Q8): Essay structure (4 paragraphs), thesis clarity, supporting details/examples, lexical diversity, and grammatical accuracy. Score 0-5.
 
 You MUST respond strictly in JSON format matching the following structure:
@@ -71,7 +71,7 @@ You MUST respond strictly in JSON format matching the following structure:
   "total_toeic_score": 120,
   "parts_breakdown": {
     "part1_score": "X/15",
-    "part2_score": "X/10",
+    "part2_score": "X/8",
     "part3_score": "X/5"
   },
   "detailed_feedback": [

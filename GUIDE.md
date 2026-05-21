@@ -87,7 +87,7 @@ You MUST respond strictly in JSON format matching the following structure:
   "total_toeic_score": 120, // Estimated converted score from 0-200
   "parts_breakdown": {
     "part1_score": "X/15",
-    "part2_score": "X/10",
+    "part2_score": "X/8",
     "part3_score": "X/5"
   },
   "detailed_feedback": [
