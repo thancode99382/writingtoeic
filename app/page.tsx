@@ -13,8 +13,7 @@ export default async function HomePage() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Header */}
       <section className="relative overflow-hidden pt-24 pb-32 flex flex-col items-center justify-center text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-background to-background"></div>
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent"></div>
         
         <div className="relative z-10 max-w-4xl px-6">
           <Chip className="mb-8 bg-secondary/20 text-secondary">

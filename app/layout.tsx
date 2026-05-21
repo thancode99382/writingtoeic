@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased dark">
-      <body className="min-h-full flex flex-col bg-gradient-animated">
+      <body className="min-h-full flex flex-col bg-app">
         {children}
       </body>
     </html>

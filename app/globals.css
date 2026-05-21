@@ -4,10 +4,10 @@
 @source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
 
 :root {
-  --background: #0a0a12;
+  --background: #0c0c0f;
   --foreground: #e8e8f0;
-  --card-bg: rgba(22, 22, 35, 0.8);
-  --card-border: rgba(100, 100, 180, 0.15);
+  --card-bg: rgba(22, 22, 30, 0.6);
+  --card-border: rgba(255, 255, 255, 0.06);
   --accent-primary: #6366f1;
   --accent-secondary: #8b5cf6;
   --accent-gradient: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
@@ -45,32 +45,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Animated gradient background */
-.bg-gradient-animated {
-  background: linear-gradient(-45deg, #0a0a12, #1a1a3e, #0f0f2d, #151535);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Refined dark background with subtle ambient glow + grain texture */
+.bg-app {
+  background-color: #0c0c0f;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.07), transparent),
+    radial-gradient(ellipse 50% 30% at 80% 40%, rgba(139, 92, 246, 0.04), transparent);
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-size: 256px 256px, auto, auto;
+  background-attachment: fixed;
 }
 
 /* Glass card */
 .glass-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
   border-radius: 16px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
-  transform: translateY(-2px);
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 4px 24px rgba(99, 102, 241, 0.06);
+  transform: translateY(-1px);
 }
 
 /* Primary button */
